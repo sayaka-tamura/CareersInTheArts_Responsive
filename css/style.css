@@ -1,0 +1,600 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,900|Oxygen:700|Ubuntu:300,500italic,700|Josefin+Sans:400,700);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+body { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+/*Typography*/
+/*fonts from article on Google font combinations*/
+/*Type scale
+used modular scale but rounded nubmers*/
+/*default line-height*/
+/*//COLORS
+//borrowed from https://kuler.adobe.com/InfoReady-Brand-Option-2-color-theme-3124965/edit/?copy=true
+$dark: #2C3E50;
+$medium: #D7DADB;
+$light: #FFFFFF;
+$highlight: #FC4349;
+$important: #6DBCDB;
+
+$text-color:#000;
+$link: $important;
+$link-visited: $medium;*/
+a { text-decoration: none; }
+
+a:link { color: #000; }
+
+/*not visit link color*/
+a:visited { color: #000; }
+
+/*visited link */
+a:hover { color: #000; }
+
+/*on cursol color*/
+body { font-size: 100%; font-family: 'Raleway', sans-serif; font-weight: 400; line-height: 1.5; }
+
+header { margin-bottom: 2em; }
+
+h1 { font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-weight: 400; font-size: 2rem; line-height: 1.3; }
+
+h2 { font-family: 'Ubuntu', sans-serif; font-weight: 500; font-style: italic; font-size: 1.5em; line-height: 1.5; }
+
+h3 { font-size: 1.313em; line-height: 1.3; }
+
+h4 { font-size: 1em; line-height: 1.3; }
+
+p { font-size: 0.875em; line-height: 1.3; }
+
+footer { /* padding: 0 1em 1em 1em; */ }
+
+/* ============================ NAVIGATION Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/ =============================*/
+#main_nav { clear: both; overflow: hidden; }
+
+#main_nav ul { list-style: none; }
+
+#main_nav li { float: left; }
+
+#main_nav li a { display: block; color: #fff; background-color: #555; text-transform: uppercase; padding: 0.625em 1em; /* 10/16   16/16*/ text-decoration: none; font-weight: 900; }
+
+#main_nav li a:hover { color: #555; background-color: #eee; }
+
+#main_nav li a:active { color: #ddd; background-color: #555; }
+
+#main_nav label { color: #fff; float: left; }
+
+#main_nav li .current { color: #555; background-color: #fff; }
+
+img, video { width: auto; max-width: 100%; height: auto; }
+
+/*for IE*/
+img { -ms-interpolation-mode: bicubic; }
+
+/*CLEARFIX*/
+/*http://blog.teamtreehouse.com/a-better-clearfix-with-sass*/
+footer:after, .container .topContentsContainer:after, .container .topContentsContainer header .logoNavi:after, .container .topContentsContainer #mainTitle:after, .container .topContentsContainer #mainTitle #imgTitle:after, .container .topContentsContainer #mainTitle #imgTitle .data-location:after, .container .main_footer_container:after, #index_featureSpeakers .speakers .speakersRow .speaker:after, #index_CW:after, #index_CW #index_CW_info:after, #index_PA:after, #index_PA #index_PA_info:after, #index_PA #index_PA_info h3:after, #index_FA:after, #index_MA:after, #schedule section:after, #schedule section.session .schedule_workshop_wrapper:after, .speakers .speakersRow:after, .speakers .speakersRow .speakersRow_wrapper:after, .speakers .speakersRow .speakersRow_wrapper .speaker:after, .speakers .speakersRow .speakersRow_wrapper .speaker a:after, .mainContainer section:after { content: ""; display: table; clear: both; }
+
+/* apply a natural box layout model to all elements */
+* { -ms-box-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; box-sizing: border-box; }
+
+/*This is from Chris Coyier and is a way to name your media queries*/
+/*we are sizing in ems by using math to write in numbers. for a 420px breakpoint we need to divide by 16 then multiply by 1 em to convert*/
+/*notice that px is not used for other number so*/
+/*420/16 * 1em would give you 420px in ems*/
+/*GRID HELPERS*/
+/*In my demos in class we are using padding inside of a column to create gutters. We use the same padding on the left and right side to make the gutter/
+
+you can do something differently like just use right padding but then either
+
+change the $gutter variable and $cols mixin appropriately or
+set your widths by hand for each section.*/
+/*$gutter: 10/16 * 1em;*/
+/*You pass in how many columns and the total columns and it sets the width in percent
+and it sets the gutter*/
+/*@mixin cols($num, $tot){
+	width:$num/$tot * 100%;
+	padding:0 $gutter;
+}
+*/
+#main_nav { background-color: transparent; float: right; clear: none; margin-top: 1em; }
+
+#main_nav form { display: block; }
+
+@media (min-width: 64em) { #main_nav form { display: none; } }
+
+#main_nav ul { display: none; }
+
+@media (min-width: 64em) { #main_nav ul { display: block; } }
+
+#homeButton { width: 30%; float: left; margin-left: 0.25em; }
+
+@media (min-width: 30em) { #homeButton { width: 25%; } }
+
+@media (min-width: 50em) { #homeButton { width: 15%; margin-bottom: 2em; } }
+
+@media (min-width: 64em) { #homeButton { width: 10%; margin-bottom: 2em; } }
+
+/*Groval layout*/
+/*Start index page-but not only index --Grobal */
+.hoverWhite a:link, .hoverWhite a:visited { color: #fff; }
+
+/*not visit link color*/
+.hoverWhite a:hover { color: #333333; }
+
+/*on cursol color*/
+.container { width: 100%; /* max-width: 80em; 1280 / 16 */ margin: 0; overflow: hidden; /* topContentsContainer end */ }
+
+.container .topContentsContainer { background: rgba(255, 114, 20, 0.8); color: #ffffff; padding: 2.3em; /* mainTitle end */ }
+
+.container .topContentsContainer #mainTitle { margin: 5.1rem 0 4rem 0; /* img start */ /* img end */ /* imgTitle end */ }
+
+@media (min-width: 30em) { .container .topContentsContainer #mainTitle { margin: 5.1rem 0; } }
+
+@media (min-width: 50em) { .container .topContentsContainer #mainTitle { margin: 2.5rem  0; } }
+
+@media (min-width: 64em) { .container .topContentsContainer #mainTitle { margin: 5rem 0 5rem  0; } }
+
+.container .topContentsContainer #mainTitle img { float: left; margin-bottom: 2rem; }
+
+@media (min-width: 50em) { .container .topContentsContainer #mainTitle img { float: right; width: 310px; margin: 1.5rem 0 1.5rem 0; } }
+
+@media (min-width: 64em) { .container .topContentsContainer #mainTitle img { width: 360px; float: right; margin: 1.5rem 0 1.5rem 0; } }
+
+@media (min-width: 80em) and (max-width: 125em) { .container .topContentsContainer #mainTitle img { float: right; width: 491px; height: 295px; } }
+
+.container .topContentsContainer #mainTitle #imgTitle { float: left; width: 100%; /* end #index_title */ /* data-location end */ }
+
+@media (min-width: 50em) { .container .topContentsContainer #mainTitle #imgTitle { width: 55%; } }
+
+.container .topContentsContainer #mainTitle #imgTitle #index_title { font-family: "Josefin+Sans",sans-serif; font-weight: 700; float: left; font-size: 2.6rem; line-height: 1; margin-bottom: 1.5rem; /*end session largest breakpoint*/ }
+
+@media (min-width: 30em) { .container .topContentsContainer #mainTitle #imgTitle #index_title { font-size: 3.8rem; } }
+
+@media (min-width: 50em) { .container .topContentsContainer #mainTitle #imgTitle #index_title { font-size: 3.3rem; } }
+
+@media (min-width: 64em) { .container .topContentsContainer #mainTitle #imgTitle #index_title { font-size: 4rem; } }
+
+.container .topContentsContainer #mainTitle #imgTitle .introductoryText { margin-bottom: 1rem; float: left; }
+
+.container .topContentsContainer #mainTitle #imgTitle .data-location { clear: both; }
+
+.container .topContentsContainer #mainTitle #imgTitle .data-location #date { float: left; margin-bottom: 0.5rem; }
+
+@media (min-width: 30em) { .container .topContentsContainer #mainTitle #imgTitle .data-location #date { margin-bottom: 0rem; } }
+
+.container .topContentsContainer #mainTitle #imgTitle .data-location div + #location { float: left; width: 100%; }
+
+@media (min-width: 30em) { .container .topContentsContainer #mainTitle #imgTitle .data-location div + #location { padding-left: 2rem; width: 65%; } }
+
+@media (min-width: 64em) { .container .topContentsContainer #mainTitle #imgTitle .data-location div + #location { padding-left: 2rem; width: 75%; } }
+
+.container .topContentsContainer #mainTitle #imgTitle .data-location .hoverWhite { float: left; }
+
+.container .main_footer_container { padding: 2em; }
+
+.container .main_footer_container h1 { margin-bottom: 1rem; }
+
+@media (max-width: 22.5em) { .container .main_footer_container h1 { font-size: 1.5rem; } }
+
+.container .main_footer_container .outside { position: absolute; left: -999em; }
+
+.container .main_footer_container .topTitle { line-height: 1.3; margin-bottom: 0.5rem; font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; font-weight: 400; font-size: 1.3rem; font-style: normal; }
+
+@media (min-width: 22.5em) { .container .main_footer_container .topTitle { line-height: 1; } }
+
+@media (min-width: 50em) { .container .main_footer_container .topTitle { font-size: 2rem; margin-bottom: 0.75em; } }
+
+.container #index_mainContainer { padding: 0; }
+
+.container #index_mainContainer footer { padding: 0 2em 2em 2em; }
+
+/*End index (and Grobal) page*/
+/* index futured speaker part start */
+/* 10/16 +em*/
+#index_featureSpeakers { margin: 2rem; /* end .speakers */ }
+
+@media (min-width: 50em) { #index_featureSpeakers { margin: 4rem 5rem 3rem 5rem; } }
+
+#index_featureSpeakers .speakers { /* end .speakersRow*/ }
+
+#index_featureSpeakers .speakers .speakersRow { background-color: #fff; padding: 0; /* end .speaker */ }
+
+#index_featureSpeakers .speakers .speakersRow.creative .speaker img { border-color: #7198E5; }
+
+#index_featureSpeakers .speakers .speakersRow.fine .speaker img { border-color: #A0E3DE; }
+
+#index_featureSpeakers .speakers .speakersRow.performing .speaker img { border-color: #A9BDE5; }
+
+#index_featureSpeakers .speakers .speakersRow.media .speaker img { border-color: #63E3D9; }
+
+#index_featureSpeakers .speakers .speakersRow .speaker { margin-bottom: 2em; float: left; width: 50%; padding: 0 0.5em; }
+
+#index_featureSpeakers .speakers .speakersRow .speaker#Diane, #index_featureSpeakers .speakers .speakersRow .speaker#Malcom, #index_featureSpeakers .speakers .speakersRow .speaker#Revital, #index_featureSpeakers .speakers .speakersRow .speaker#Sheila { clear: both; }
+
+@media (min-width: 30em) { #index_featureSpeakers .speakers .speakersRow .speaker { padding: 0 1em; } }
+
+@media (min-width: 50em) { #index_featureSpeakers .speakers .speakersRow .speaker { width: 25%; }
+  #index_featureSpeakers .speakers .speakersRow .speaker#Diane, #index_featureSpeakers .speakers .speakersRow .speaker#Malcom, #index_featureSpeakers .speakers .speakersRow .speaker#Revital, #index_featureSpeakers .speakers .speakersRow .speaker#Sheila { clear: none; } }
+
+#index_featureSpeakers .speakers .speakersRow .speaker img { border-radius: 0em; border-style: solid; border-width: 10px; }
+
+@media (min-width: 30em) { #index_featureSpeakers .speakers .speakersRow .speaker img { border-width: 12px; } }
+
+@media (min-width: 64em) { #index_featureSpeakers .speakers .speakersRow .speaker img { border-width: 15px; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_featureSpeakers .speakers .speakersRow .speaker img { border-width: 20px; } }
+
+#index_featureSpeakers .speakers .speakersRow .speaker h2 { font-size: 1.2em; }
+
+@media (min-width: 30em) { #index_featureSpeakers .speakers .speakersRow .speaker h2 { font-size: 1.3em; margin-bottom: 0.5rem; } }
+
+@media (min-width: 50em) { #index_featureSpeakers .speakers .speakersRow .speaker h2 { font-size: 1.2em; } }
+
+#index_featureSpeakers .speakers .speakersRow .speaker .speakers_description { font-size: 0.9rem; }
+
+@media (min-width: 30em) { #index_featureSpeakers .speakers .speakersRow .speaker .speakers_description { font-size: 0.9rem; } }
+
+@media (min-width: 50em) { #index_featureSpeakers .speakers .speakersRow .speaker .speakers_description { font-size: 0.85rem; } }
+
+/* end #index_featureSpeakers */
+/* index futured speaker part end */
+/*Start index(program)&session page*/
+#index_FourWorkshop h2 { margin-left: 2rem; margin-right: 2rem; }
+
+#index_CW { padding: 2rem; /* #index_CW_info end */ }
+
+@media (min-width: 50em) { #index_CW { padding: 4rem; } }
+
+#index_CW img { width: 60%; margin: 2rem 0 2em 3rem; padding: 0.5rem; }
+
+@media (max-width: 22.5em) { #index_CW img { box-shadow: 10px 10px 25px -5px rgba(0, 0, 0, 0.8); background-color: #CADCFF; display: inline-block; } }
+
+@media (min-width: 22.5em) { #index_CW img { margin: 2rem 0 2em 3.5rem; } }
+
+@media (min-width: 30em) { #index_CW img { width: 39%; margin: 1rem 0rem 0 1rem; } }
+
+@media (min-width: 50em) { #index_CW img { width: 38%; margin: 1rem 0 0 2rem; } }
+
+@media (min-width: 64em) { #index_CW img { width: 37%; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_CW img { float: right; margin: 5rem 3rem 0 0; } }
+
+#index_CW #index_CW_info { width: 100%; float: left; }
+
+@media (min-width: 30em) { #index_CW #index_CW_info { width: 57%; } }
+
+#index_CW #index_CW_info h3 { font-size: 1.8rem; font-weight: 700; float: left; }
+
+@media (min-width: 50em) { #index_CW #index_CW_info h3 { font-size: 2.8rem; } }
+
+@media (min-width: 64em) { #index_CW #index_CW_info h3 { font-size: 3.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_CW #index_CW_info h3 { font-size: 4rem; } }
+
+#index_CW #index_CW_info p { clear: both; font-size: 1rem; float: left; margin-top: 1.5rem; margin-bottom: 1rem; }
+
+@media (min-width: 50em) { #index_CW #index_CW_info p { margin-top: 2rem; margin-bottom: 1.5rem; } }
+
+@media (min-width: 64em) { #index_CW #index_CW_info p { font-size: 1.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_CW #index_CW_info p { font-size: 2rem; margin-top: 4rem; } }
+
+#index_CW #index_CW_info .index_moreInfo { clear: both; float: right; padding: 0.4rem; font-size: 0.7rem; font-weight: 700; border-style: solid; border-width: thin; }
+
+#index_CW #index_CW_info .index_moreInfo a { color: #000; }
+
+@media (min-width: 50em) { #index_CW #index_CW_info .index_moreInfo { font-size: 0.8rem; padding: 0.5rem; } }
+
+@media (min-width: 64em) { #index_CW #index_CW_info .index_moreInfo { padding: 0.75rem; font-size: 1.25rem; } }
+
+/* #index_CW end */
+#index_PA { padding: 2rem; /* #index_PA_info end */ }
+
+@media (min-width: 50em) { #index_PA { padding: 4rem; } }
+
+#index_PA img { width: 60%; padding: 0.75rem; }
+
+@media (max-width: 22.5em) { #index_PA img { display: inline-block; box-shadow: 10px 10px 25px -5px rgba(0, 0, 0, 0.8); margin: 2rem 0 2em 3.25rem; background-color: #CADCFF; } }
+
+@media (min-width: 22.5em) { #index_PA img { margin: 2rem 0 2em 3.75rem; } }
+
+@media (min-width: 30em) { #index_PA img { width: 35%; float: right; margin: 0 0 0 2rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_PA img { margin-right: 1rem; } }
+
+#index_PA #index_PA_info { width: 100%; float: left; /* end h3 */ /* end .index_moreInfo */ }
+
+@media (min-width: 30em) { #index_PA #index_PA_info { width: 57%; } }
+
+#index_PA #index_PA_info h3 { font-size: 1.8rem; font-weight: 700; float: left; }
+
+@media (min-width: 50em) { #index_PA #index_PA_info h3 { font-size: 2.8rem; } }
+
+@media (min-width: 64em) { #index_PA #index_PA_info h3 { font-size: 3.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_PA #index_PA_info h3 { font-size: 4rem; } }
+
+#index_PA #index_PA_info p { clear: left; font-size: 1rem; float: left; margin-top: 1.5rem; margin-bottom: 1rem; }
+
+@media (min-width: 50em) { #index_PA #index_PA_info p { margin-top: 2rem; margin-bottom: 1.5rem; } }
+
+@media (min-width: 64em) { #index_PA #index_PA_info p { font-size: 1.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_PA #index_PA_info p { font-size: 2rem; margin-top: 4rem; } }
+
+#index_PA #index_PA_info .index_moreInfo { clear: both; float: right; padding: 0.4rem; font-size: 0.7rem; font-weight: 700; border-style: solid; border-width: thin; }
+
+@media (min-width: 64em) { #index_PA #index_PA_info .index_moreInfo { padding: 0.5rem; font-size: 0.8rem; } }
+
+@media (min-width: 64em) { #index_PA #index_PA_info .index_moreInfo { padding: 0.75rem; font-size: 1.25rem; } }
+
+#index_PA #index_PA_info .index_moreInfo a { color: #000; }
+
+/* //#index_PA end */
+#index_FA, #index_MA { padding: 2rem; background-color: #3333ff; background-size: cover; /* end h3 */ }
+
+@media (min-width: 50em) { #index_FA, #index_MA { padding: 4rem; } }
+
+#index_FA h3, #index_MA h3 { font-size: 1.8rem; font-weight: 700; float: left; }
+
+@media (min-width: 30em) { #index_FA h3, #index_MA h3 { float: right; } }
+
+@media (min-width: 50em) { #index_FA h3, #index_MA h3 { font-size: 2.8rem; } }
+
+@media (min-width: 64em) { #index_FA h3, #index_MA h3 { font-size: 3.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_FA h3, #index_MA h3 { font-size: 4rem; } }
+
+#index_FA h3 a, #index_MA h3 a { color: #fff; }
+
+#index_FA h3 a:hover, #index_MA h3 a:hover { color: #000; }
+
+#index_FA p, #index_MA p { clear: both; font-size: 1rem; float: left; width: 100%; margin-top: 1.5rem; margin-bottom: 1rem; color: #fff; }
+
+@media (min-width: 30em) { #index_FA p, #index_MA p { float: right; width: 57%; } }
+
+@media (min-width: 50em) { #index_FA p, #index_MA p { margin-top: 2rem; margin-bottom: 1.5rem; } }
+
+@media (min-width: 64em) { #index_FA p, #index_MA p { font-size: 1.5rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { #index_FA p, #index_MA p { font-size: 2rem; margin-top: 4rem; } }
+
+#index_FA .index_moreInfo, #index_MA .index_moreInfo { clear: both; float: right; padding: 0.4rem; color: #fff; font-size: 0.7rem; font-weight: 700; border-style: solid; border-width: thin; }
+
+#index_FA .index_moreInfo a, #index_MA .index_moreInfo a { color: #fff; }
+
+@media (min-width: 50em) { #index_FA .index_moreInfo, #index_MA .index_moreInfo { padding: 0.5rem; font-size: 0.8rem; } }
+
+@media (min-width: 64em) { #index_FA .index_moreInfo, #index_MA .index_moreInfo { padding: 0.75rem; font-size: 1.25rem; } }
+
+/* #index_FA,#index_MA end */
+/* Session part start */
+.CW, .FA, .PA { margin-bottom: 2rem; }
+
+.sessionI, .sessionII, .sessionIII, .sessionIV { padding: 1em; }
+
+.sessionI h3, .sessionII h3, .sessionIII h3, .sessionIV h3 { margin-bottom: 1rem; }
+
+.sessionI p:first-of-type, .sessionII p:first-of-type, .sessionIII p:first-of-type, .sessionIV p:first-of-type { margin-bottom: 1rem; }
+
+#index_CW, .sessionI { background-color: #7198E5; }
+
+.sessionII { background-color: #A0E3DE; }
+
+#index_PA, .sessionIII { background-color: #A9BDE5; }
+
+#index_MA, .sessionIV { background-color: #63E3D9; }
+
+.major { font-family: 'Ubuntu', sans-serif; font-weight: 500; font-style: italic; font-size: 1.313em; line-height: 1.3; margin: 0.25em 0em; }
+
+/*End index&session page*/
+/*Start schedule page*/
+/* <div class="mainContainer" id="schedule"> */
+#schedule { /*minor typography adjustment from blueprint.css default*/ /* end section */ }
+
+#schedule section { padding: 2em; /* end &.session */ }
+
+#schedule section.opening, #schedule section.lunch, #schedule section.closing { background-color: #ddd; color: #333; margin-bottom: auto; /* end header */ }
+
+@media (min-width: 30em) { #schedule section.opening, #schedule section.lunch, #schedule section.closing { clear: both; } }
+
+@media (max-width: 22.5em) { #schedule section.opening header, #schedule section.lunch header, #schedule section.closing header { margin-bottom: 0; } }
+
+@media (min-width: 30em) { #schedule section.opening header, #schedule section.lunch header, #schedule section.closing header { margin-bottom: auto; } }
+
+#schedule section.opening header h2, #schedule section.lunch header h2, #schedule section.closing header h2 { color: #333; font-weight: 700; font-style: normal; }
+
+@media (max-width: 22.5em) { #schedule section.opening header h2 span, #schedule section.lunch header h2 span, #schedule section.closing header h2 span { font-size: 0.8rem; display: block; } }
+
+@media (min-width: 30em) { #schedule section.opening header h2 span, #schedule section.lunch header h2 span, #schedule section.closing header h2 span { font-size: 1.2rem; } }
+
+@media (max-width: 22.5em) { #schedule section.opening p span, #schedule section.lunch p span, #schedule section.closing p span { display: block; } }
+
+@media (min-width: 30em) { #schedule section.opening p span, #schedule section.lunch p span, #schedule section.closing p span { display: block; } }
+
+#schedule section.opening .mgb_1rem, #schedule section.lunch .mgb_1rem, #schedule section.closing .mgb_1rem { margin-bottom: 1rem; }
+
+#schedule section.session { background-color: #333; color: #ddd; margin-bottom: auto; }
+
+@media (max-width: 22.5em) { #schedule section.session { padding: 1em; } }
+
+@media (min-width: 30em) { #schedule section.session { width: 50%; float: left; padding: 0 0.625em; padding-bottom: 0.625rem; }
+  #schedule section.session.one, #schedule section.session.three { padding-right: 0.3125rem; }
+  #schedule section.session.two { padding-left: 0.3125rem; }
+  #schedule section.session.four { padding-left: 0.3125rem; } }
+
+@media (min-width: 64em) { #schedule section.session { width: 100%; float: none; clear: both; }
+  #schedule section.session.one, #schedule section.session.two, #schedule section.session.three, #schedule section.session.four { padding: 0; } }
+
+#schedule section.session header { padding: 2rem; margin-bottom: 0; }
+
+@media (max-width: 22.5em) { #schedule section.session header { padding: 0 0 1rem 1rem; } }
+
+@media (min-width: 30em) { #schedule section.session header { padding: 2rem 0 2rem 1rem; } }
+
+#schedule section.session header h2 { font-style: normal; margin-bottom: 0; font-weight: 700; }
+
+@media (max-width: 22.5em) { #schedule section.session header h2 { font-size: 1.4rem; } }
+
+@media (min-width: 50em) { #schedule section.session header h2 { font-size: 1.5rem; } }
+
+@media (min-width: 64em) { #schedule section.session header + div { border-left: 1px solid black; } }
+
+#schedule section.session .schedule_workshop_wrapper { background-color: #fff; color: #333; padding: 1rem; /* end .workshop */ }
+
+@media (min-width: 64em) { #schedule section.session .schedule_workshop_wrapper { padding: 0; } }
+
+#schedule section.session .schedule_workshop_wrapper .workshop { margin-bottom: 1rem; /* end @include breakpoint(largest) */ }
+
+@media (min-width: 64em) { #schedule section.session .schedule_workshop_wrapper .workshop { width: 25%; float: left; border-right: 1px solid black; height: 200px; padding: 3.5em 1em; margin-bottom: 0; } }
+
+#schedule section.session .schedule_workshop_wrapper .workshop h3 { color: #666; margin-bottom: 0; line-height: 1.2; }
+
+#schedule section.session .schedule_workshop_wrapper .workshop h4 { margin-bottom: 1rem; line-height: 1.3; }
+
+#schedule section.session .schedule_workshop_wrapper .workshop .room { color: #333; text-align: right; }
+
+@media (min-width: 30em) { #schedule section.session.two .fine h4, #schedule section.session.two .media h4 { margin-bottom: 2.25rem; } }
+
+@media (min-width: 50em) { #schedule section.session.two .fine h4, #schedule section.session.two .media h4 { margin-bottom: 1rem; } }
+
+/* end #schedule */
+/*SperkersBio page*/
+.speakers { padding: 0; /*end .speakersRow*/ }
+
+.speakers .speakersRow { padding-top: 3.75em; padding-right: 1.875em; padding-left: 1.875em; padding-bottom: 3.75em; /*end session largest breakpoint*/ /* end .speakersRow_wrapper */ }
+
+@media (max-width: 22.5em) { .speakers .speakersRow { padding-top: 1.25em; padding-right: 0.625em; padding-left: 0.625em; padding-bottom: 1.25em; } }
+
+@media (min-width: 64em) { .speakers .speakersRow { width: 100%; float: none; clear: both; } }
+
+.speakers .speakersRow .speakersRow_wrapper { /*end .speaker*/ }
+
+@media (max-width: 22.5em) { .speakers .speakersRow .speakersRow_wrapper { padding: 1rem; } }
+
+@media (min-width: 30em) { .speakers .speakersRow .speakersRow_wrapper { padding: 2rem; } }
+
+.speakers .speakersRow .speakersRow_wrapper .speaker { /*end session medium breakpoint*/ /*end workshop largest breakpoint*/ }
+
+@media (max-width: 22.5em) { .speakers .speakersRow .speakersRow_wrapper .speaker { width: 100%; float: left; padding: 0; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker.firstPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.secondPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.thirdPresenter { margin-bottom: 2em; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker#Diane, .speakers .speakersRow .speakersRow_wrapper .speaker#Malcom, .speakers .speakersRow .speakersRow_wrapper .speaker#Revital, .speakers .speakersRow .speakersRow_wrapper .speaker#Sheila { clear: both; } }
+
+@media (min-width: 22.5em) { .speakers .speakersRow .speakersRow_wrapper .speaker { padding: 1.25em; } }
+
+@media (min-width: 50em) { .speakers .speakersRow .speakersRow_wrapper .speaker { width: 50%; float: left; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker.firstPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.secondPresenter { margin-bottom: 2em; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker#Diane, .speakers .speakersRow .speakersRow_wrapper .speaker#Malcom, .speakers .speakersRow .speakersRow_wrapper .speaker#Revital, .speakers .speakersRow .speakersRow_wrapper .speaker#Sheila { clear: both; } }
+
+@media (min-width: 80em) and (max-width: 125em) { .speakers .speakersRow .speakersRow_wrapper .speaker { width: 25%; float: left; padding: 0 1.875em; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker#Diane, .speakers .speakersRow .speakersRow_wrapper .speaker#Malcom, .speakers .speakersRow .speakersRow_wrapper .speaker#Revital, .speakers .speakersRow .speakersRow_wrapper .speaker#Sheila { clear: none; }
+  .speakers .speakersRow .speakersRow_wrapper .speaker.firstPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.secondPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.thirdPresenter, .speakers .speakersRow .speakersRow_wrapper .speaker.fourthPresenter { margin-bottom: 0; } }
+
+@media (min-width: 64em) { .speakers .speakersRow .speakersRow_wrapper .speaker a { margin: 0 2.25rem; } }
+
+@media (min-width: 80em) and (max-width: 125em) { .speakers .speakersRow .speakersRow_wrapper .speaker a { margin: 0; } }
+
+.speakers .speakersRow .speakersRow_wrapper .speaker a img { border-radius: 10em; }
+
+.speakers .speakersRow.creative .speakersRow_wrapper { background: rgba(113, 152, 229, 0.5); }
+
+.speakers .speakersRow.fine .speakersRow_wrapper { background: rgba(255, 255, 255, 0.9); }
+
+.speakers .speakersRow.performing .speakersRow_wrapper { background: rgba(169, 189, 229, 0.5); }
+
+.speakers .speakersRow.media .speakersRow_wrapper { background: rgba(255, 255, 255, 0.9); }
+
+/* end .speakers */
+/*End session page*/
+/*Start designed by page*/
+.topContentsContainer.short { padding-bottom: 0; }
+
+header.short { margin-bottom: 0; }
+
+.designedByWrapper { margin: 5em 10em; /*end session medium breakpoint*/ }
+
+.designedByWrapper h1 { margin-bottom: 1em; }
+
+.designedByWrapper h2 { margin-bottom: 1em; }
+
+.designedByWrapper p { font-size: 1em; margin-bottom: 1em; }
+
+.designedByWrapper ul { margin-left: 1em; }
+
+.designedByWrapper ul li { list-style-type: disc; }
+
+@media (max-width: 22.5em) { .designedByWrapper { margin: 2em 2em 5em; } }
+
+@media (min-width: 22.5em) { .designedByWrapper { margin: 2em 2em 5em; } }
+
+/*Start Info page*/
+.mainContainer { margin-bottom: 3rem; }
+
+.mainContainer section { margin-bottom: 2rem; }
+
+.mainContainer section .BR { margin-bottom: 1rem; }
+
+.mainContainer section#info_date { width: 100%; }
+
+@media (min-width: 50em) { .mainContainer section#info_date { width: 50%; float: left; } }
+
+.mainContainer section#info_date p { font-size: 1.2rem; }
+
+.mainContainer section #bmccMap { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; margin-bottom: 1rem; clear: both; }
+
+@media (min-width: 50em) { .mainContainer section #bmccMap { width: 45%; float: right; padding-bottom: 28.125%; clear: right; } }
+
+.mainContainer section #bmccMap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+@media (min-width: 50em) { .mainContainer section #info_Location { width: 50%; float: left; } }
+
+.mainContainer section #info_Location #info_address { font-size: 1.2rem; }
+
+.mainContainer section #bySubway, .mainContainer section #byBus, .mainContainer section #byPath, .mainContainer section #byCar { margin-bottom: 1rem; }
+
+.mainContainer section #bySubway h4, .mainContainer section #byBus h4, .mainContainer section #byPath h4, .mainContainer section #byCar h4 { font-weight: 600; line-height: 1.3; margin-bottom: 1rem; }
+
+.mainContainer section #bySubway p, .mainContainer section #byBus p, .mainContainer section #byPath p, .mainContainer section #byCar p { margin-bottom: 1em; }
+
+/*End Info page*/
+/*Start Videos page*/
+section h2 { line-height: 1.3; margin-bottom: 1rem; }
+
+section .videoWrapper { position: relative; padding-bottom: 56.25%; /* 16:9 */ padding-top: 25px; /*may adjust for chrome on some players*/ height: 0; margin-bottom: 1.5rem; }
+
+section .videoWrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/*End Videos page*/
+/*Start footer part*/
+#bmccAdress { margin-bottom: 2em; }
+
+.cunyLogoFooter { float: right; width: 30%; }
+
+@media (min-width: 30em) { .cunyLogoFooter { width: 25%; } }
+
+@media (min-width: 50em) { .cunyLogoFooter { width: 15%; } }
+
+@media (min-width: 64em) { .cunyLogoFooter { width: 12%; } }
+
+@media (min-width: 80em) and (max-width: 125em) { .cunyLogoFooter { width: 10%; } }
+
+.designedByFooter { float: right; clear: both; margin-top: 2em; }
+
+.designedByFooter p { text-align: right; margin-bottom: 0.4rem; }
+
+.designedByFooter #index_credit_vector { font-size: 0.75rem; text-align: right; }
+
+.designedByFooter a:link, .designedByFooter a:visited, .designedByFooter a:active { color: #000; }
+
+/*End footer part*/
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,26 @@
+/*Typography*/
+/*fonts from article on Google font combinations*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,900|Oxygen:700|Ubuntu:300,500italic,700|Josefin+Sans:400,700);
+
+/*Type scale
+used modular scale but rounded nubmers*/
+$massive:110/16 * 1em;
+$biggest:68/16 * 1em;
+$bigger:42/16 * 1em;
+$big:26/16 * 1em;
+$base:1em;
+
+/*default line-height*/
+$lh: 1.5;
+
+/*//COLORS
+//borrowed from https://kuler.adobe.com/InfoReady-Brand-Option-2-color-theme-3124965/edit/?copy=true
+$dark: #2C3E50;
+$medium: #D7DADB;
+$light: #FFFFFF;
+$highlight: #FC4349;
+$important: #6DBCDB;
+
+$text-color:#000;
+$link: $important;
+$link-visited: $medium;*/

@@ -1,0 +1,13 @@
+img,video{width: auto; max-width: 100%; height: auto;}
+/*for IE*/
+img{ -ms-interpolation-mode: bicubic; }
+
+/*CLEARFIX*/
+/*http://blog.teamtreehouse.com/a-better-clearfix-with-sass*/
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

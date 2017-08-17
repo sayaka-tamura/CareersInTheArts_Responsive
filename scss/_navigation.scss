@@ -1,0 +1,49 @@
+/* ============================
+* NAVIGATION
+* Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/
+* =============================*/
+
+#main_nav{
+  clear:both;
+  overflow:hidden;
+  //background-color: #555;
+}
+
+#main_nav ul{
+  list-style: none;
+}
+
+#main_nav li{
+  float:left;
+}
+
+#main_nav li a{
+  display:block;
+  color:#fff;
+  background-color: #555;
+  text-transform: uppercase;
+  padding: 0.625em 1em; /* 10/16   16/16*/
+  text-decoration:none;
+  font-weight:900;
+}
+
+#main_nav li a:hover{
+  color:#555;
+  background-color: #eee;
+}
+
+#main_nav li a:active{
+  color:#ddd;
+  background-color: #555;
+}
+
+
+#main_nav label{
+  color:#fff;
+  float:left;
+}
+
+#main_nav li .current{
+    color:#555;
+    background-color: #fff;
+}
