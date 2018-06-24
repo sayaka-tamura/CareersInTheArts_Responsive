@@ -1,10 +1,9 @@
 ## CareersInTheArts_Responsive
-Website for the event "Careers In The Arts" 
 
 [(Link) Careers In The Arts](http://mmp.bmcc.cuny.edu/sayaka.tamura/MMP240/finalProject/index.html)
 
 ### Summery:  
-WordPress theme for a blog you and your family can collaborate on the same account's pages
+Website for the event "Careers In The Arts"   
 
 ### Year:  
 2016  
